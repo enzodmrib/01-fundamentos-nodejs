@@ -21,12 +21,12 @@ export class Database {
   }
 
   select(table, search) {
-    const data = this.#database[table] ?? []
+    let data = this.#database[table] ?? []
 
     if (search) {
       data = data.filter(row => {
         return Object.entries(search).some(({ key, value }) => {
-          return row[key].inclues(value)
+          return row[key].includes(value)
         })
       })
     }
